@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="app-header" role="banner">
+    <div class="brand">
+      <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons/flags/1x1/un.svg" alt="logo" class="logo" />
+      <h1 aria-label="Weather App">Weather</h1>
+    </div>
+    <div class="controls">
+      <div class="unit-toggle" role="group" aria-label="Units toggle">
+        <button id="unitC" class="toggle active" aria-pressed="true">°C</button>
+        <button id="unitF" class="toggle" aria-pressed="false">°F</button>
+      </div>
+      <button id="geoBtn" class="icon-btn" title="Use my location" aria-label="Use my location">📍</button>
+    </div>
+  </header>
+
+  <main class="app-main" role="main">
+    <section class="search-section" aria-labelledby="searchLabel">
+      <label id="searchLabel" class="sr-only" for="city">Search city</label>
+      <div class="search">
+        <input type="text" id="city" placeholder="Search city..." autocomplete="off" />
+        <button id="searchBtn">Search</button>
+      </div>
+      <div id="suggestions" class="suggestions" role="listbox" aria-label="City suggestions"></div>
+      <div id="recentSearches" class="chips" aria-live="polite" aria-label="Recent searches"></div>
+    </section>
+
+    <section class="current" aria-live="polite">
+      <div class="card current-card">
+        <div class="current-primary">
+          <div class="current-meta">
+            <h2 id="locationName">—</h2>
+            <p id="dateTime">—</p>
+          </div>
+          <div class="current-temp">
+            <img id="currentIcon" alt="Weather icon" />
+            <div>
+              <div id="currentTemp" class="temp">—</div>
+              <div id="currentDesc" class="desc">—</div>
+            </div>
+          </div>
+        </div>
+        <div class="current-details">
+          <div class="detail"><span>Feels</span><strong id="feelsLike">—</strong></div>
+          <div class="detail"><span>Humidity</span><strong id="humidity">—</strong></div>
+          <div class="detail"><span>Wind</span><strong id="wind">—</strong></div>
+          <div class="detail"><span>Pressure</span><strong id="pressure">—</strong></div>
+        </div>
+      </div>
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="forecast" aria-labelledby="forecastTitle">
+      <h3 id="forecastTitle">5-Day Forecast</h3>
+      <div id="forecastGrid" class="forecast-grid"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <span>Data by OpenWeather</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
